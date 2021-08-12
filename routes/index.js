@@ -16,11 +16,11 @@ router
     .get(`${v}/getGoodInfo`, G.getGoodInfo)
     .post(`${v}/user/register`, U.register)
     .post(`${v}/user/login`, U.login)
-	
-    .post(`${v}/cart/add`,checkToken ,C.addToCart)
-    .get(`${v}/cart/list`,checkToken ,C.getCartList)
-    .get(`${v}/cart/del`,checkToken ,C.delCartItem)
-    .get(`${v}/cart/update`,checkToken ,C.updateCartCount)
-    .post(`${v}/cart/submit`,checkToken ,C.submitCart)
+
+    .post(`${v}/cart/add`, checkToken, C.addToCart)
+    .get(`${v}/cart/list`, checkToken, C.getCartList)
+    .get(`${v}/cart/del`, checkToken, C.delCartItem)
+    .get(`${v}/cart/update`, checkToken, C.updateCartCount)
+    .post(`${v}/cart/submit`, checkToken, C.submitCart)
 
 module.exports = router

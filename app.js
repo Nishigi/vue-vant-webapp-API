@@ -14,5 +14,6 @@ app.use(require('koa-body')())
 
 // 动态资源服务：把所有RESTful API放在中间上
 app.use(require('./routes').routes())
+app.use(require('./routes/antd').routes())
 
 app.listen(9999, () => console.log('服务器端口9999--启动成功'))
