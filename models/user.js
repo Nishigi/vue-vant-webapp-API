@@ -4,7 +4,7 @@ module.exports = mongoose.model('users', mongoose.Schema({
     username: String,
     password: String,
     create_time: {type:Number,default:Date.now()},
-    role: {type:String,default:''},
-    role_name: {type:String,default:''},
+    role: {type:String,default:'editor'},
+    role_name: {type:String,default:'editor'},
     status: {type:Number,default:1},
 }))
