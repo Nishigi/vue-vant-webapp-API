@@ -6,6 +6,7 @@ const v = '/api/v1'
 
 const user = require('../controllers/user')
 const article = require('../controllers/article')
+const upload = require('../controllers/uploadImg')
 
 router
     .get(`${v}/antd/user`, checkToken, user.getUserList)
@@ -18,6 +19,7 @@ router
     .post(`${v}/antd/articleAddOrEdit`,checkToken, article.articleAddOrEdit)	
     .get(`${v}/antd/articleList`,checkToken, article.articleList)
     .get(`${v}/antd/articleInfo`,checkToken, article.articleInfo)
+    .get(`${v}/antd/upload`,checkToken, upload.uploadImg)
 
 
 module.exports = router

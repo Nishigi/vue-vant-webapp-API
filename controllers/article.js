@@ -4,14 +4,14 @@ const jwt = require('../utils/jwt')
 class ArticleController {
 	//获取下拉选项
 	static getCates(ctx){
-		cxt.body = {
+		ctx.body = {
 			err:0,
 			msg:'success',
 			data:{
 				list:[
 					{_id:1 ,cate:'amen' ,cate_zh:'仙侠传奇'},
 					{_id:2 ,cate:'city' ,cate_zh:'都市传说'},
-					{_id:3 ,cate:'world' ,cate_zh:'异类世界'},
+					{_id:3 ,cate:'world' ,cate_zh:'次元世界'},
 				]
 			}
 		}
@@ -28,14 +28,16 @@ class ArticleController {
 			cate,
 			content
 		}
+		let info=null
 		if(id) {
 			ele['check_status'] = 0
 			ele['create_time'] = Date.now()
-			info = await articleModel.updateOne({_id: id}, {$set: ele})
+			  info = await articleModel.updateOne({_id: id}, {$set: ele})
 		}else{
-			info =  await articleModel.insertMany([ele])
+			  info =  await articleModel.insertMany([ele])
 		}
-		cxt.body={ err:0,msg:'success', data: {info}}
+		
+		ctx.body={ err:0,msg:'success', data: {info}}
 	}
 	//文章列表
 	static async articleList(ctx){
@@ -55,13 +57,13 @@ class ArticleController {
 		if(!params.cate) delete params.cate
 		const total = await articleModel.find(params).count()
 		const list = await articleModel.find(params).limit(size).skip((page-1)*size).sort({create_time:-1})
-		cxt.body={ err:0,msg:'success', data: {total,list}}
+		ctx.body={ err:0,msg:'success', data: {total,list}}
 	}
 	//文章信息
 	static async articleInfo(ctx){
 		let { id } = ctx.request.query
 		const info =await articleModel.findOne({_id : id })
-		cxt.body={ err:0,msg:'success', data: {info} }
+		ctx.body={ err:0,msg:'success', data: {info} }
 	}
 }
 module.exports=ArticleController

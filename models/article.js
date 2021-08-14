@@ -8,5 +8,5 @@ module.exports=mongoose.model('article',mongoose.Schema({
 	create_time : { type:Number,default:Date.now() },
 	content : String,
 	check_status : { type:Number,default:0 },
-	status: { type:Number,default:0 }
+	status: { type:Number,default:1 }
 }))
