@@ -6,7 +6,7 @@ const v = '/api/v1'
 
 const user = require('../controllers/user')
 const article = require('../controllers/article')
-const upload = require('../controllers/uploadImg')
+const upload = require('../controllers/upload')
 
 router
     .get(`${v}/antd/user`, checkToken, user.getUserList)
